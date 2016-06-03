@@ -2,6 +2,7 @@ package tk.jingzing.web;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,7 +26,6 @@ public class PageController {
      * 如果加了参数“/”，则只认为是根页面。
      *
      */
-
     @RequestMapping("/index")
     public ModelAndView  index(){
         // 直接返回字符串，框架默认会去 spring.view.prefix 目录下的 （index拼接spring.view.suffix）页面
@@ -34,5 +34,17 @@ public class PageController {
         mav.addObject("time", new Date());
         mav.addObject("message", this.hello);
         return mav;
+    }
+
+    /**
+     * 响应到JSP页面page1（可以直接使用Model封装内容，直接返回页面字符串）
+     * @param model
+     * @return
+     */
+    @RequestMapping("/page2")
+    public String page2(Model model){
+        // 页面位置 /WEB-INF/jsp/page/page2.jsp
+        model.addAttribute("content", hello + "（第二种）");
+        return "page/page1";
     }
 }
