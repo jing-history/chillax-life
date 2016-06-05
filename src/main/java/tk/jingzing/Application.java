@@ -9,14 +9,14 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
  * Created by Louis Wang on 2016/6/3.
  */
 @SpringBootApplication
-public class SampleWebJspApplication extends SpringBootServletInitializer {
+public class Application extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(SampleWebJspApplication.class);
+        return application.sources(Application.class);
     }
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(SampleWebJspApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }

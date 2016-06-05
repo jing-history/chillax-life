@@ -8,8 +8,6 @@ import org.springframework.mock.web.MockServletContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import tk.jingzing.web.WelcomeController;
 
 /**
  * Created by Louis Wang on 2016/6/3.
@@ -26,8 +24,7 @@ public class SampleWebJspApplicationTests {
 
     @Before
     public void setUp() throws Exception {
-        mvc = MockMvcBuilders.standaloneSetup(
-                new WelcomeController()).build();
+     //   mvc = MockMvcBuilders.standaloneSetup(new WelcomeController()).build();
     }
 
     @Test
