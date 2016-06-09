@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
  * Created by wangyunjing on 16/6/5.
  */
 @Controller
+@RequestMapping("index")
 public class IndexController {
 
-    @RequestMapping("/")
     public String index(@RequestParam(value="name", required=false, defaultValue="Jing") String name, Model model){
         model.addAttribute("name",name);
         model.addAttribute("now", LocalDateTime.now());
@@ -27,9 +27,4 @@ public class IndexController {
         return System.getProperties();
     }
 
-    @RequestMapping("love")
-    public String love(Model model){
-        model.addAttribute("now", LocalDateTime.now());
-        return "love";
-    }
 }
