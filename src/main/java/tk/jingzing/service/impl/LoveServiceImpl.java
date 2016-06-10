@@ -1,6 +1,8 @@
 package tk.jingzing.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.jingzing.dao.LoveDao;
 import tk.jingzing.entity.Love;
 import tk.jingzing.service.LoveService;
 
@@ -10,8 +12,11 @@ import tk.jingzing.service.LoveService;
 @Service
 public class LoveServiceImpl implements LoveService{
 
+    @Autowired
+    private LoveDao loveDao;
+
     @Override
     public Love getMyLove() {
-        return null;
+        return loveDao.getMyLove();
     }
 }
