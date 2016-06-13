@@ -31,4 +31,11 @@ public class LoveDaoImpl implements LoveDao {
             }
         });*/
     }
+
+    @Override
+    public void asyncStatus(String status) {
+        int type = Integer.valueOf(status);
+        String sql = "update love set status = ? where id = ?";
+        jdbcTemplate.update(sql,new Object[]{type,2});
+    }
 }

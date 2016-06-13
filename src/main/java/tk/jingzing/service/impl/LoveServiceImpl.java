@@ -2,6 +2,7 @@ package tk.jingzing.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import tk.jingzing.dao.LoveDao;
 import tk.jingzing.entity.Love;
 import tk.jingzing.service.LoveService;
@@ -18,5 +19,12 @@ public class LoveServiceImpl implements LoveService{
     @Override
     public Love getMyLove() {
         return loveDao.getMyLove();
+    }
+
+    @Override
+    public void asyncStatus(String status) {
+        if(!StringUtils.isEmpty(status)){
+            loveDao.asyncStatus(status);
+        }
     }
 }

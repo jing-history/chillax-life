@@ -8,4 +8,6 @@ import tk.jingzing.entity.Love;
 public interface LoveService {
 
     public Love getMyLove();
+
+    void asyncStatus(String status);
 }

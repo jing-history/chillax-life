@@ -124,23 +124,6 @@
         var foot = tree.footer;
         var hold = 1;
 
-        canvas.click(function (e) {
-         var offset = canvas.offset(), x, y;
-         x = e.pageX - offset.left;
-         y = e.pageY - offset.top;
-         if (seed.hover(x, y)) {
-         hold = 0;
-         canvas.unbind("click");
-         canvas.unbind("mousemove");
-         canvas.removeClass('hand');
-         }
-         }).mousemove(function (e) {
-         var offset = canvas.offset(), x, y;
-         x = e.pageX - offset.left;
-         y = e.pageY - offset.top;
-         canvas.toggleClass('hand', seed.hover(x, y));
-         });
-
         var seedAnimate = eval(Jscex.compile("async", function () {
             seed.draw();
             while (hold) {
@@ -229,20 +212,46 @@
 
         runAsync().start();
 
-        var t=setTimeout(showLove(canvas),30000);
-
-
         //thymeleaf 的使用方法
         /*<![CDATA[*/
         var firstTime = [[${#dates.format(firstTime,'yyyy-MM-dd HH:mm:ss')}]];
         var status = [[${status}]];
         console.log(firstTime);
         /*]]>*/
-    })();
 
-    function showLove(obj) {
-        obj.trigger("click");
-    }
+        //按钮点击触发爱心动画，但是我想根据状态来自动显示
+        if(status == 0){
+            canvas.click(function (e) {
+                var offset = canvas.offset(), x, y;
+                x = e.pageX - offset.left;
+                y = e.pageY - offset.top;
+                if (seed.hover(x, y)) { // 开始动画
+                    hold = 0;
+                    canvas.unbind("click");
+                    canvas.unbind("mousemove");
+                    canvas.removeClass('hand');
+                }
+
+                // 更新状态
+                $.ajax({
+                    url: "/async",
+                    type: 'post',
+                    data: {status:1},
+                    success: function(response) {
+                        // if the response contains any errors, replace the form
+                        console.info("you are my love!!!");
+                    }
+                });
+            }).mousemove(function (e) {
+                var offset = canvas.offset(), x, y;
+                x = e.pageX - offset.left;
+                y = e.pageY - offset.top;
+                canvas.toggleClass('hand', seed.hover(x, y));
+            });
+        }else {
+            hold = 0;
+        }
+    })();
 </script>
 </body>
 </html>
