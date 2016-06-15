@@ -18,8 +18,8 @@ public class LoveDaoImpl implements LoveDao {
 
     @Override
     public Love getMyLove() {
-        String sql = "select * from love WHERE id = ? limit 1";
-        return (Love) jdbcTemplate.queryForObject(sql,new Object[]{2},new BeanPropertyRowMapper(Love.class));
+        String sql = "select * from love WHERE sole = ? limit 1";
+        return (Love) jdbcTemplate.queryForObject(sql,new Object[]{1},new BeanPropertyRowMapper(Love.class));
 
         /*return Love jdbcTemplate.queryForObject(sql, new RowMapper<Love>() {
             @Override
@@ -35,7 +35,7 @@ public class LoveDaoImpl implements LoveDao {
     @Override
     public void asyncStatus(String status) {
         int type = Integer.valueOf(status);
-        String sql = "update love set status = ? where id = ?";
-        jdbcTemplate.update(sql,new Object[]{type,2});
+        String sql = "update love set status = ? where sole = ?";
+        jdbcTemplate.update(sql,new Object[]{type,1});
     }
 }
