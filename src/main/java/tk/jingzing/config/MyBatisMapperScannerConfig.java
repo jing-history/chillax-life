@@ -24,7 +24,7 @@ public class MyBatisMapperScannerConfig {
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         mapperScannerConfigurer.setBasePackage("tk.mybatis.mapper");
         Properties properties = new Properties();
-        properties.setProperty("mappers", "tk.mybatis.util.MyMapper");
+        properties.setProperty("mappers", "tk.jingzing.util.MyMapper");
         properties.setProperty("notEmpty", "false");
         properties.setProperty("IDENTITY", "MYSQL");
         mapperScannerConfigurer.setProperties(properties);
