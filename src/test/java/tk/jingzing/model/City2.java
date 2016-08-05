@@ -24,25 +24,26 @@
 
 package tk.jingzing.model;
 
-import javax.persistence.*;
-
 /**
- * 基础信息
+ * mybatis 3.3.1新功能测试使用
  *
  * @author liuzh
- * @since 2016-01-31 21:42
+ * @since 2016-01-22 22:16
  */
-public class BaseEntity {
-    @Id
-    @Column(name = "Id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class City2 {
     private Integer id;
 
-    @Transient
-    private Integer page = 1;
+    private String cityName;
 
-    @Transient
-    private Integer rows = 10;
+    private String cityState;
+
+    public City2() {
+    }
+
+    public City2(String cityName, String cityState) {
+        this.cityName = cityName;
+        this.cityState = cityState;
+    }
 
     public Integer getId() {
         return id;
@@ -52,19 +53,28 @@ public class BaseEntity {
         this.id = id;
     }
 
-    public Integer getPage() {
-        return page;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setPage(Integer page) {
-        this.page = page;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
-    public Integer getRows() {
-        return rows;
+    public String getCityState() {
+        return cityState;
     }
 
-    public void setRows(Integer rows) {
-        this.rows = rows;
+    public void setCityState(String cityState) {
+        this.cityState = cityState;
+    }
+
+    @Override
+    public String toString() {
+        return "City2{" +
+                "id=" + id +
+                ", cityName='" + cityName + '\'' +
+                ", cityState='" + cityState + '\'' +
+                '}';
     }
 }
