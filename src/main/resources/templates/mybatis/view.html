@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>国家(地区)信息</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" media="screen"/>
+    <script th:src="@{/webjars/jquery/2.2.1/jquery.min.js}"></script>
+</head>
+<!-- Header -->
+<body style="margin-top:50px;overflow: hidden;">
+    <form th:action="@{/countries/save}" method="post">
+        <input type="hidden" name="id" th:value="${country.id}"/>
+        <table class="gridtable" style="width:800px;">
+            <tr>
+                <th colspan="5">国家(地区)信息 - [<a th:href="@{/countries}">返回</a>]</th>
+            </tr>
+            <tr>
+                <th>国家(地区)名称：</th>
+                <td><input type="text" name="countryname" th:value="${country.countryname}" />
+                </td>
+                <th>国家(地区)代码：</th>
+                <td><input type="text" name="countrycode" th:value="${country.countrycode}"/>
+                </td>
+                <td><input type="submit" value="保存"/></td>
+            </tr>
+                <tr style="color:#00ba00;">
+                    <th colspan="5" th:text="${msg}"></th>
+                </tr>
+        </table>
+    </form>
+</body>
+</html>

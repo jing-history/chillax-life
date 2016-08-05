@@ -31,4 +31,11 @@ public class CountryController {
         result.addObject("rows", country.getRows());
         return result;
     }
+
+    @RequestMapping(value = "/add")
+    public ModelAndView view(){
+        ModelAndView result = new ModelAndView("mybatis/view");
+        result.addObject("country", new Country());
+        return result;
+    }
 }
