@@ -2,6 +2,7 @@ package tk.jingzing.service.mybatis;
 
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import tk.jingzing.mapper.CountryMapper;
 import tk.jingzing.model.Country;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * @Description:what to do
  * Created by Louis Wang on 2016/8/4.
  */
-
+@Service
 public class CountryService {
 
     @Autowired
