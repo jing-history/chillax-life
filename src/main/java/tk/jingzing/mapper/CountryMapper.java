@@ -30,4 +30,5 @@ import tk.jingzing.util.MyMapper;
 
 public interface CountryMapper extends MyMapper<Country> {
 
+    Country getMySql(Integer id);
 }

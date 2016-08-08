@@ -40,4 +40,8 @@ public class CountryService {
             countryMapper.insert(country);
         }
     }
+
+    public Country getMySql(Integer id) {
+        return countryMapper.getMySql(id);
+    }
 }

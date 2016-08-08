@@ -46,6 +46,7 @@ public class CountryController {
     public ModelAndView view(@PathVariable Integer id) {
         ModelAndView result = new ModelAndView("mybatis/view");
         Country country = countryService.getById(id);
+        Country country1 = countryService.getMySql(id);
         result.addObject("country", country);
         return result;
     }
