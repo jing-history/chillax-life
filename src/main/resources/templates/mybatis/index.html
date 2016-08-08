@@ -112,8 +112,8 @@
                         <td th:text="${country.id}"></td>
                         <td th:text="${country.countryname}"></td>
                         <td th:text="${country.countrycode}"></td>
-                        <td style="text-align:center;">[<a th:href="@{/countries/view/${country.id}}">修改</a>] -
-                            [<a th:href="@{/countries/delete/${country.id}}">删除</a>]
+                        <td style="text-align:center;">[<a th:href="@{/countries/view/{id}(id=${country.id})}">修改</a>] -
+                            [<a th:href="@{/countries/delete/{id}(id=${country.id})}">删除</a>]
                         </td>
                     </tr>
                     </tbody>
@@ -124,7 +124,7 @@
                             <a th:href="@{/countries(page=1,rows=${pageInfo.pageSize},countryname=${queryParam.countryname},countrycode=${queryParam.countrycode})}">首页</a>
                         </td>
                         <td th:if="${pageInfo.hasPreviousPage}">
-                            <a th:href="@{/countries(page=${pageInfo.prePage},rows=${pageInfo.pageSize},countryname=${queryParam.countryname},countrycode=${queryParam.countrycode})}">首页</a>
+                            <a th:href="@{/countries(page=${pageInfo.prePage},rows=${pageInfo.pageSize},countryname=${queryParam.countryname},countrycode=${queryParam.countrycode})}">上一页</a>
                         </td>
 
                         <div th:each="nav : ${pageInfo.navigatepageNums}">
@@ -138,7 +138,7 @@
                             <a th:href="@{/countries(page=${pageInfo.nextPage},rows=${pageInfo.pageSize},countryname=${queryParam.countryname},countrycode=${queryParam.countrycode})}">下一页</a>
                         </td>
                         <td th:if="${pageInfo.hasNextPage}">
-                            <a th:href="@{/countries(page=${pageInfo.prePage},rows=${pageInfo.pageSize},countryname=${queryParam.countryname},countrycode=${queryParam.countrycode})}">尾页</a>
+                            <a th:href="@{/countries(page=${pageInfo.pages},rows=${pageInfo.pageSize},countryname=${queryParam.countryname},countrycode=${queryParam.countrycode})}">尾页</a>
                         </td>
                     </tr>
                 </table>

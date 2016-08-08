@@ -24,7 +24,7 @@
                 <td><input type="submit" value="保存"/></td>
             </tr>
                 <tr style="color:#00ba00;">
-                    <th colspan="5" th:text="${msg}"></th>
+                    <th colspan="5" th:if="${msg}" th:text="${msg}"></th>
                 </tr>
         </table>
     </form>
