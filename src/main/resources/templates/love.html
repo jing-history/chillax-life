@@ -16,6 +16,7 @@
     <script type="text/javascript" th:src="@{/assets/js/parallax-slider/jquery.easing.1.3.js}" charset="utf-8"></script>
     <script type="text/javascript" th:src="@{/assets/js/parallax-slider/cufon-yui.js}"></script>
     <script type="text/javascript" th:src="@{/assets/js/parallax-slider/ChunkFive_400.font.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/audiojs/audio.min.js}"></script>
     <style type="text/css">
         <!--
         .STYLE1 {
@@ -32,7 +33,7 @@
     </script>
 </head>
 <body>
-<audio autoplay="autopaly" loop="loop">
+<audio preload="auto" loop="loop">
     <source th:src="@{/audio/love.mp3}" type="audio/mp3"/>
 </audio>
 <div id="main">
@@ -116,11 +117,16 @@
 </script>
 <script th:inline="javascript">
     (function () {
-        //相片加载
+        //1.相片加载
         var $pxs_container	= $('#pxs_container');
         $pxs_container.parallaxSlider();
 
-        //爱心构图
+        //2.播放音乐
+        audiojs.events.ready(function() {
+            var as = audiojs.createAll();
+        });
+
+        //3.爱心构图
         var canvas = $('#canvas');
         if (!canvas[0].getContext) {
             $("#error").show();
