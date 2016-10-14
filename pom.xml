@@ -40,6 +40,9 @@
         <mybatis.spring.version>1.2.4</mybatis.spring.version>
         <mapper.version>3.3.6</mapper.version>
         <pagehelper.version>4.1.1</pagehelper.version>
+
+        <!--  Swagger2 依赖版本  -->
+        <springfox.version>2.2.2</springfox.version>
     </properties>
 
     <!-- 用第三方仓库 -->
@@ -230,6 +233,19 @@
         <artifactId>tomcat-embed-jasper</artifactId>
         <scope>provided</scope>
     </dependency>-->
+
+        <!-- Swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <!-- Swagger -->
     </dependencies>
 
     <build>
