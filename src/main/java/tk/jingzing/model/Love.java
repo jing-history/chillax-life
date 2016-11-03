@@ -1,4 +1,4 @@
-package tk.jingzing.entity;
+package tk.jingzing.model;
 
 import java.sql.Timestamp;
 

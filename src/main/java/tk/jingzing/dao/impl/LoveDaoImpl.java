@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import tk.jingzing.dao.LoveDao;
-import tk.jingzing.entity.Love;
+import tk.jingzing.model.Love;
 
 /**
  * Created by wangyunjing on 16/6/9.

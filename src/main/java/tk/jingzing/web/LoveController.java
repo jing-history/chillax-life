@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import springfox.documentation.annotations.ApiIgnore;
-import tk.jingzing.entity.Love;
+import tk.jingzing.model.Love;
 import tk.jingzing.service.LoveService;
 
 import java.time.LocalDateTime;

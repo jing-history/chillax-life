@@ -1,6 +1,6 @@
 package tk.jingzing.dao;
 
-import tk.jingzing.entity.Love;
+import tk.jingzing.model.Love;
 
 /**
  * Created by wangyunjing on 16/6/9.

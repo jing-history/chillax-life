@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import tk.jingzing.dao.LoveDao;
-import tk.jingzing.entity.Love;
+import tk.jingzing.model.Love;
 import tk.jingzing.service.LoveService;
 
 /**
