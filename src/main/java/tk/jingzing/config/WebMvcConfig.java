@@ -24,16 +24,42 @@
 
 package tk.jingzing.config;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import tk.jingzing.authorization.resolvers.CurrentUserMethodArgumentResolver;
+import tk.jingzing.interceptor.AuthorizationInterceptor;
+
+import java.util.List;
 
 /**
- * @author liuzh_3nofxnp
+ * 配置类，增加自定义拦截器和解析器
+ * @author jing
  * @since 2015-12-19 16:16
  */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
+
+    @Autowired
+    private AuthorizationInterceptor authorizationInterceptor;
+
+    @Autowired
+    private CurrentUserMethodArgumentResolver currentUserMethodArgumentResolver;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+        registry.addInterceptor(authorizationInterceptor);
+    }
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        argumentResolvers.add(currentUserMethodArgumentResolver);
+    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

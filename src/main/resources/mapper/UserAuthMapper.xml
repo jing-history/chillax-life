@@ -25,5 +25,13 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="tk.jingzing.mapper.UserAuthMapper">
+    <select id="findByUsername" parameterType="java.lang.String" resultType="User">
+        SELECT id_ AS id ,username_ AS  username,password_ AS password,
+        nickname_ AS nickname FROM user_ WHERE username_ = #{username}
+    </select>
 
+    <select id="findOne" parameterType="java.lang.Long" resultType="User">
+        SELECT id_ AS id ,username_ AS  username,password_ AS password,
+        nickname_ AS nickname FROM user_ WHERE id_ = #{currentUserId}
+    </select>
 </mapper>

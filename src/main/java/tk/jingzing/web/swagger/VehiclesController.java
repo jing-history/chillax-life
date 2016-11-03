@@ -136,7 +136,7 @@ public class VehiclesController {
         return map;
     }
 
-    @ApiOperation(value = "根据车辆id查询", notes = "精确查询,最常规的方式,支持POST和GET方式", response = String.class)
+    @ApiOperation(value = "根据车辆id删除", notes = "精确查询,最常规的方式,支持POST和GET方式", response = String.class)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "id", required = false,
                     dataType = "string", paramType = "path", defaultValue = "12344444")

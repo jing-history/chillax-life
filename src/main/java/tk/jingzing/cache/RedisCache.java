@@ -6,15 +6,15 @@ import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+import tk.jingzing.authorization.config.Constants;
 import tk.jingzing.util.ProtoStuffSerializerUtil;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * redis缓存
- * 
- * @author yingjun
  *
  */
 @Component
@@ -126,5 +126,14 @@ public class RedisCache {
 	 */
 	public void clearCache() {
 		deleteCacheWithPattern(RedisCache.CAHCENAME+"|*");
+	}
+
+	/**
+	 * 延长过期的时间
+	 *
+	 * @param key
+	 */
+	public void setExpireTime(String key) {
+		redisTemplate.boundValueOps(key).expire(Constants.TOKEN_EXPIRES_HOUR, TimeUnit.HOURS);
 	}
 }

@@ -14,6 +14,7 @@ import static springfox.documentation.builders.PathSelectors.regex;
 
 /**
  * SwaggerConfig
+ * http://localhost:8080/swagger-ui.html
  * @Configuration注解，让Spring来加载该类配置
  * @EnableSwagger2注解来启用Swagger2
  * Created by wangyunjing on 16/10/14.

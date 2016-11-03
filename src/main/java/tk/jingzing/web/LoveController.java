@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import springfox.documentation.annotations.ApiIgnore;
+import tk.jingzing.authorization.annotation.Authorization;
 import tk.jingzing.model.Love;
 import tk.jingzing.service.LoveService;
 
@@ -38,6 +39,7 @@ public class LoveController {
 
     @RequestMapping(value = "/async", method = RequestMethod.POST)
     @ResponseBody
+    @Authorization
     public String asyncStatus(@RequestParam(required = false, defaultValue = "1") String status){
         logger.info("change status: " + status);
         loveService.asyncStatus(status);

@@ -2,6 +2,7 @@ package tk.jingzing.authorization.resolvers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.context.request.RequestAttributes;
@@ -17,6 +18,7 @@ import tk.jingzing.service.auth.UserAuthService;
  * 增加方法注入，将含有CurrentUser注解的方法参数注入当前登录用户
  * Created by wangyunjing on 2016/11/3.
  */
+@Component
 public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentResolver{
 
     @Autowired
