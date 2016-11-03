@@ -39,7 +39,7 @@ public class LoveController {
 
     @RequestMapping(value = "/async", method = RequestMethod.POST)
     @ResponseBody
-    @Authorization
+    @Authorization  //添加权限
     public String asyncStatus(@RequestParam(required = false, defaultValue = "1") String status){
         logger.info("change status: " + status);
         loveService.asyncStatus(status);
