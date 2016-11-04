@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import springfox.documentation.annotations.ApiIgnore;
-import tk.jingzing.authorization.annotation.Authorization;
 import tk.jingzing.model.Love;
 import tk.jingzing.service.LoveService;
 
@@ -23,7 +22,7 @@ import java.time.LocalDateTime;
 @ApiIgnore
 public class LoveController {
 
-    // 在Java类中创建 logger 实例
+    // 在Java类中创建 logger 实例  tt
     private static final Logger logger = LoggerFactory.getLogger(LoveController.class);
     @Autowired
     private LoveService loveService;
@@ -39,7 +38,6 @@ public class LoveController {
 
     @RequestMapping(value = "/async", method = RequestMethod.POST)
     @ResponseBody
-    @Authorization  //添加权限
     public String asyncStatus(@RequestParam(required = false, defaultValue = "1") String status){
         logger.info("change status: " + status);
         loveService.asyncStatus(status);
