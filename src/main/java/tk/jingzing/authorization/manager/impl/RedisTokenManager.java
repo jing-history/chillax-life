@@ -35,10 +35,10 @@ public class RedisTokenManager implements TokenManager{
 
     @Override
     public boolean checkToken(TokenModel model) {
-        String cache_key = CACHE_KEY + model.getUserId();
         if(model == null){
             return false;
         }
+        String cache_key = CACHE_KEY + model.getUserId();
      //   String token = redis.boundValueOps(model.getUserId()).get();
         String token = cache.getCache(cache_key,String.class);
         if(token == null || !token.equals(model.getToken())){
