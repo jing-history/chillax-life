@@ -34,7 +34,7 @@
 </head>
 <body>
 <audio preload="auto" loop="loop">
-    <source th:src="@{/audio/love.mp3}" type="audio/mp3"/>
+    <source th:src="@{/audio/JingleBells.mp3}" type="audio/mp3"/>
 </audio>
 <div id="main">
     <!--<div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a
@@ -43,7 +43,7 @@
     </div>-->
     <div id="wrap">
         <div id="text">
-            <div id="code"><font style="color: #FFCC00;"> <span class="say">亲爱的华宝宝，我爱你</span><br/>
+            <div id="code"><font style="color: #990033;font-weight:bold;"> <span class="say">亲爱的华宝宝，我爱你</span><br/>
                 <span class="say"> </span><br/>
                 <span class="say"> 我知道我不会甜言蜜语，</span><br/>
                 <span class="say"> </span><br/>
@@ -219,7 +219,7 @@
 
             // 会有闪烁不得意这样做, (＞﹏＜)
             canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-            canvas.css("background", "#00BFFF");   //#ffe 可以改成同颜色的背景色
+         //   canvas.css("background", "#00BFFF");   //#ffe 可以改成同颜色的背景色
             $await(Jscex.Async.sleep(300));
             canvas.css("background", "none");
         }));
